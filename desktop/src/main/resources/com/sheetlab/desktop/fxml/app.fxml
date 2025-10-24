@@ -6,16 +6,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1850.0" styleClass="root" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1850.0" styleClass="root" stylesheets="@../css/app.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sheetlab.desktop.controllers.MainController">
     <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="100.0" />
     </columnConstraints>
@@ -47,7 +45,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Button fx:id="minimize" alignment="CENTER" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button fx:id="minimize" alignment="CENTER" mnemonicParsing="false" styleClass="btn" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <graphic>
                                 <FontAwesomeIcon glyphName="MINUS">
                                     <font>
@@ -56,7 +54,7 @@
                                 </FontAwesomeIcon>
                             </graphic>
                         </Button>
-                        <Button fx:id="close" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <Button fx:id="closeButton" mnemonicParsing="false" style="-fx-background-color: red;" styleClass="btn" GridPane.columnIndex="3" GridPane.rowIndex="1">
                             <graphic>
                                 <FontAwesomeIcon fill="WHITE" glyphName="CLOSE">
                                     <font>
@@ -65,7 +63,7 @@
                                 </FontAwesomeIcon>
                             </graphic>
                         </Button>
-                        <Button fx:id="maximize" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Button fx:id="maximize" mnemonicParsing="false" styleClass="btn" GridPane.columnIndex="2" GridPane.rowIndex="1">
                             <graphic>
                                 <FontAwesomeIcon glyphName="COMPRESS">
                                     <font>
@@ -110,147 +108,7 @@
                 </FlowPane>
             </children>
         </GridPane>
-        <FlowPane alignment="CENTER" hgap="50.0" prefHeight="200.0" prefWidth="200.0" styleClass="bottom-bar" GridPane.rowIndex="2">
-            <children>
-                <Button fx:id="newProject" mnemonicParsing="false" styleClass="gray-btn" text="Utwórz projekt" />
-                <Button fx:id="openProject" mnemonicParsing="false" styleClass="gray-btn" text="Otwórz inne..." />
-            </children>
-        </FlowPane>
-        <GridPane GridPane.rowIndex="1">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" percentHeight="100.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <GridPane>
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" percentHeight="15.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" percentHeight="85.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                    <children>
-                        <FlowPane alignment="CENTER_LEFT" styleClass="left-container-label" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                            <children>
-                                <Label alignment="CENTER" styleClass="big-label" text="Partytury" />
-                            </children>
-                            <GridPane.margin>
-                                <Insets />
-                            </GridPane.margin>
-                            <padding>
-                                <Insets left="75.0" />
-                            </padding>
-                        </FlowPane>
-                        <ScrollPane prefHeight="200.0" prefWidth="200.0" styleClass="projects-container" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-                            <GridPane.margin>
-                                <Insets />
-                            </GridPane.margin>
-                            <content>
-                                <FlowPane prefHeight="613.0" prefWidth="863.0">
-                                    <children>
-                                        <GridPane prefHeight="225.0" prefWidth="150.0">
-                                            <columnConstraints>
-                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
-                                            </columnConstraints>
-                                            <rowConstraints>
-                                                <RowConstraints minHeight="10.0" percentHeight="80.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" percentHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                            </rowConstraints>
-                                            <children>
-                                                <AnchorPane fx:id="create" prefHeight="240.0" prefWidth="200.0" styleClass="projects-container-create">
-                                                    <children>
-                                                        <FontAwesomeIcon glyphName="PLUS" layoutX="60.0" layoutY="101.0" size="3em" />
-                                                    </children>
-                                                </AnchorPane>
-                                                <Label styleClass="projects-container-label" text="Nowy projekt" GridPane.rowIndex="1" />
-                                            </children>
-                                        </GridPane>
-                                    </children>
-                                    <padding>
-                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                    </padding>
-                                </FlowPane>
-                            </content>
-                        </ScrollPane>
-                    </children>
-                </GridPane>
-                <GridPane GridPane.columnIndex="1">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" percentHeight="15.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" percentHeight="85.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                    <children>
-                        <FlowPane alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="200.0" styleClass="right-container-label">
-                            <children>
-                                <Label alignment="CENTER_RIGHT" styleClass="big-label" text="Konta" />
-                            </children>
-                            <padding>
-                                <Insets right="75.0" />
-                            </padding>
-                            <GridPane.margin>
-                                <Insets />
-                            </GridPane.margin>
-                        </FlowPane>
-                        <GridPane GridPane.rowIndex="1">
-                            <columnConstraints>
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="40.0" prefWidth="100.0" />
-                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            </columnConstraints>
-                            <rowConstraints>
-                                <RowConstraints minHeight="10.0" percentHeight="15.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" percentHeight="23.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" percentHeight="62.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            </rowConstraints>
-                            <children>
-                                <GridPane styleClass="account-container" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                    <columnConstraints>
-                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" prefWidth="100.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="70.0" prefWidth="100.0" />
-                                    </columnConstraints>
-                                    <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                                    </rowConstraints>
-                                    <children>
-                                        <StackPane prefWidth="108.0" styleClass="account-container-icon" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                            <children>
-                                                <FontAwesomeIcon fill="WHITE" glyphName="USER" size="4em" text="" />
-                                            </children>
-                                            <GridPane.margin>
-                                                <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-                                            </GridPane.margin>
-                                        </StackPane>
-                                        <GridPane GridPane.columnIndex="1">
-                                            <columnConstraints>
-                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                            </columnConstraints>
-                                            <rowConstraints>
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                            </rowConstraints>
-                                            <children>
-                                                <Button alignment="CENTER" mnemonicParsing="false" styleClass="account-container-btn" text="Zaloguj się" textAlignment="CENTER" GridPane.rowIndex="1" />
-                                                <Button alignment="CENTER" mnemonicParsing="false" styleClass="account-container-btn" text="Utwórz konto" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                <Label styleClass="account-container-label" text="Nie zalogowano się" />
-                                            </children>
-                                        </GridPane>
-                                    </children>
-                                    <GridPane.margin>
-                                        <Insets right="20.0" />
-                                    </GridPane.margin>
-                                </GridPane>
-                            </children>
-                        </GridPane>
-                    </children>
-                </GridPane>
-            </children>
-        </GridPane>
+        <FlowPane fx:id="bottomPane" alignment="CENTER" hgap="50.0" prefHeight="200.0" prefWidth="200.0" styleClass="bottom-bar" GridPane.rowIndex="2" />
+      <BorderPane fx:id="contentPane" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
     </children>
 </GridPane>
