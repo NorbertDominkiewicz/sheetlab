@@ -1,9 +1,9 @@
-module com.ndominkiewicz.desktop {
+module com.sheetlab.desktop {
     requires javafx.controls;
     requires javafx.fxml;
 
     requires org.controlsfx.controls;
 
-    opens com.ndominkiewicz.desktop to javafx.fxml;
-    exports com.ndominkiewicz.desktop;
+    opens com.sheetlab.desktop to javafx.fxml;
+    exports com.sheetlab.desktop;
 }

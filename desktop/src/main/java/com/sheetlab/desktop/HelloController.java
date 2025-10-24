@@ -1,4 +1,4 @@
-package com.ndominkiewicz.desktop;
+package com.sheetlab.desktop;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

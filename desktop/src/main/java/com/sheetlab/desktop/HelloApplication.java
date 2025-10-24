@@ -1,4 +1,4 @@
-package com.ndominkiewicz.desktop;
+package com.sheetlab.desktop;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
