@@ -1,11 +1,11 @@
 .root {
     -fx-background-color: #222528;
-    -fx-background-radius: 32px;
+    -fx-background-radius: 8px;
 }
 
 .top-bar {
     -fx-background-color: #1b1d1f;
-    -fx-background-radius: 32px 32px 0px 0px;
+    -fx-background-radius: 8px 8px 0px 0px;
 }
 
 .title {
