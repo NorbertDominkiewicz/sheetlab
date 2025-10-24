@@ -26,7 +26,7 @@ public class App extends Application {
         stage.show();
     }
     private Parent loadFXML() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/app.fxml"))
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxml/app.fxml"));
         return fxmlLoader.load();
     }
     private Dimension getScreenSize() {
@@ -43,5 +43,8 @@ public class App extends Application {
     }
     public static boolean isIsMaximized() {
         return isMaximized;
+    }
+    public static void main(String [] args){
+        launch();
     }
 }
