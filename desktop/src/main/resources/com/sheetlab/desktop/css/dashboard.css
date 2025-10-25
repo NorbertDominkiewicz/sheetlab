@@ -1,0 +1,129 @@
+.root {
+    -fx-background-color: #222528;
+    -fx-background-radius: 32px;
+}
+
+.top-bar {
+    -fx-background-color: #1b1d1f;
+    -fx-background-radius: 32px 32px 0px 0px;
+}
+
+.title {
+    -fx-text-fill: #d5d2d2;
+    -fx-font-size: 15px;
+}
+
+.left-container-label {
+    -fx-background-color: #1d1f21;
+    -fx-background-radius: 0 0 0 0;
+}
+
+.right-container-label {
+    -fx-background-color: #1d1f21;
+    -fx-background-radius: 0 0 0 0;
+}
+
+.projects-container {
+    -fx-border-width: 0 1px 0 0;
+    -fx-border-color: #3a3939;
+    -fx-background-color: transparent;
+}
+
+.projects-container > .viewport {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.projects-container-create {
+    -fx-background-color: #f3f3f3;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.projects-container-label {
+    -fx-text-fill: white;
+    -fx-font-family: Carlito;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+}
+
+.big-label {
+    -fx-text-fill: white;
+    -fx-font-family: Carlito;
+    -fx-font-size: 24px;
+    -fx-font-weight: 600;
+}
+
+.account-container {
+    -fx-background-color: #1b1d1f;
+    -fx-background-radius: 12px;
+}
+
+.account-container-label {
+    -fx-text-fill: white;
+    -fx-font-family: Carlito;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+.account-container-icon {
+    -fx-background-color: #2e3134;
+    -fx-background-radius: 120px;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+    -fx-border-radius: 120px;
+}
+
+.account-container-btn {
+    -fx-background-radius: 5px;
+    -fx-background-color: #e33333;
+    -fx-padding: 4px 16px;
+    -fx-text-fill: white;
+    -fx-font-family: Carlito;
+    -fx-cursor: hand;
+}
+
+.btn {
+    -fx-background-color: #f3f3f3;
+    -fx-background-radius: 16px;
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
+    -fx-padding: 4px 6px;
+    -fx-cursor: hand;
+}
+
+.btn:hover {
+    -fx-background-color: #dedcdc;
+}
+
+.btn.close {
+    -fx-background-color: #d30a0a;
+}
+
+.btn.close:hover {
+    -fx-background-color: #a60707;
+}
+
+.bottom-bar {
+    -fx-background-color: #1b1d1f;
+    -fx-background-radius: 0px 0px 32px 32px;
+}
+
+.menu-button {
+    -fx-background-color: transparent;
+}
+
+.menu-button > .label {
+    -fx-text-fill: white;
+    -fx-font-family: Carlito;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+}
+
+.gray-btn {
+    -fx-background-color: #484040;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
