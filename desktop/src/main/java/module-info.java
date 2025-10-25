@@ -7,4 +7,6 @@ module com.sheetlab.desktop {
 
     opens com.sheetlab.desktop to javafx.fxml;
     exports com.sheetlab.desktop;
+    opens com.sheetlab.desktop.controllers to javafx.fxml;
+    exports com.sheetlab.desktop.controllers;
 }
