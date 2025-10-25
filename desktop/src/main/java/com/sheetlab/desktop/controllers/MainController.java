@@ -1,14 +1,20 @@
 package com.sheetlab.desktop.controllers;
 
+import com.sheetlab.desktop.App;
 import com.sheetlab.desktop.models.ViewController;
 import com.sheetlab.desktop.utils.Page;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.*;
@@ -22,46 +28,65 @@ public class MainController implements Initializable {
     Button closeButton;
     @FXML
     BorderPane contentPane;
+    @FXML
+    GridPane topBar;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         controllers = new ArrayList<>();
+        loadUpActions();
         switchView(Page.DASHBOARD);
     }
+    private void loadUpActions() {
+        closeButton.setOnAction( event -> close());
+        topBar.setOnMousePressed( event -> {
+            App.getPosition().setX((int) (event.getScreenX() - App.getStage().getX()));
+            App.getPosition().setY((int) (event.getScreenY() -  App.getStage().getY()));
+        });
+        topBar.setOnMouseDragged(event -> {
+            App.getStage().setX(event.getScreenX() - App.getPosition().getX());
+            App.getStage().setY(event.getScreenY() - App.getPosition().getY());
+        });
+    }
     public void switchView(Page page) {
-        if(viewCollision()) {
-            String name = "";
-            contentPane.getChildren().clear();
-            switch (page) {
-                case DASHBOARD -> {
-                    name = "dashboard";
-                    if(dashboardController == null) {
-                        contentPane.getChildren().add(getNode(name));
-                        dashboardController = getController(name);
-                        currentFXML = name;
-                        controllers.add(dashboardController);
-                    } else {
-                        contentPane.getChildren().add(dashboardController.getView());
-                        currentFXML = name;
-                    }
+        String name = "";
+        contentPane.getChildren().clear();
+        switch (page) {
+            case DASHBOARD -> {
+                name = "dashboard";
+                if(dashboardController == null) {
+                    contentPane.setCenter(getNode(name));
+                    dashboardController = getController(name);
+                    currentFXML = name;
+                    controllers.add(dashboardController);
+                } else {
+                    contentPane.getChildren().add(dashboardController.getView());
+                    currentFXML = name;
                 }
-                case SETUP -> {
-                    name = "setup";
-                    if(setupController == null) {
-                        contentPane.getChildren().add(getNode(name));
-                        setupController = getController(name);
-                        currentFXML = name;
-                        controllers.add(setupController);
-                    } else {
-                        contentPane.getChildren().add(setupController.getView());
-                        currentFXML = name;
-                    }
+            }
+            case SETUP -> {
+                name = "setup";
+                if(setupController == null) {
+                    contentPane.setCenter(getNode(name));
+                    setupController = getController(name);
+                    currentFXML = name;
+                    controllers.add(setupController);
+                } else {
+                    contentPane.getChildren().add(setupController.getView());
+                    currentFXML = name;
                 }
             }
         }
     }
+    private void close() {
+        Timeline timeline = new Timeline();
+        KeyFrame keyFrame = new KeyFrame(Duration.millis(300), new KeyValue(App.getScene().getRoot().opacityProperty(), 0));
+        timeline.getKeyFrames().add(keyFrame);
+        timeline.setOnFinished((event) -> System.exit(0));
+        timeline.play();
+    }
     private Node getNode(String name) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ndominkiewicz/optui/fxml/views/" + name + ".fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/sheetlab/desktop/fxml/views/" + name + ".fxml"));
             return loader.load();
         } catch (Exception e) {
             e.printStackTrace();
@@ -70,7 +95,7 @@ public class MainController implements Initializable {
     }
     private <T extends ViewController> T getController(String name) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ndominkiewicz/optui/fxml/views/" + name + ".fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/sheetlab/desktop/fxml/views/" + name + ".fxml"));
             return loader.getController();
         } catch (Exception e) {
             e.printStackTrace();
