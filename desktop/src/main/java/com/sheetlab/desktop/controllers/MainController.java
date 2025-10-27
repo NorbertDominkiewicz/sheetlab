@@ -33,6 +33,8 @@ public class MainController implements Initializable {
     GridPane topBar;
     @FXML
     FlowPane bottomPane;
+    @FXML
+    Button homeButton;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         controllers = new ArrayList<>();
@@ -41,6 +43,7 @@ public class MainController implements Initializable {
     }
     private void loadUpActions() {
         closeButton.setOnAction( event -> close());
+        homeButton.setOnAction(event -> switchView(Page.DASHBOARD));
         topBar.setOnMousePressed( event -> {
             App.getPosition().setX((int) (event.getScreenX() - App.getStage().getX()));
             App.getPosition().setY((int) (event.getScreenY() -  App.getStage().getY()));
