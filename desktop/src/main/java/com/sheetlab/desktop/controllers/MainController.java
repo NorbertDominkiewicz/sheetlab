@@ -65,8 +65,10 @@ public class MainController implements Initializable {
             case DASHBOARD -> {
                 name = "dashboard";
                 if(dashboardController == null) {
-                    contentPane.setCenter(getNode(name));
-                    dashboardController = getController(name);
+                    dashboardController = loadController(name);
+                    if(dashboardController != null) {
+                        dashboardController.setMainController(this);
+                    }
                     currentFXML = name;
                     controllers.add(dashboardController);
                 } else {
@@ -99,6 +101,18 @@ public class MainController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/sheetlab/desktop/fxml/views/" + name + ".fxml"));
             return loader.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    private <T extends ViewController> T loadController(String name) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/sheetlab/desktop/fxml/views/" + name + ".fxml"));
+            Node node = loader.load();
+            T controller = loader.getController();
+            contentPane.setCenter(node);
+            return controller;
         } catch (Exception e) {
             e.printStackTrace();
         }
