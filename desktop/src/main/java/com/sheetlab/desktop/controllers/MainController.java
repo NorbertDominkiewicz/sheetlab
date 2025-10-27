@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
@@ -30,6 +31,8 @@ public class MainController implements Initializable {
     BorderPane contentPane;
     @FXML
     GridPane topBar;
+    @FXML
+    FlowPane bottomPane;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         controllers = new ArrayList<>();
@@ -43,6 +46,14 @@ public class MainController implements Initializable {
             App.getPosition().setY((int) (event.getScreenY() -  App.getStage().getY()));
         });
         topBar.setOnMouseDragged(event -> {
+            App.getStage().setX(event.getScreenX() - App.getPosition().getX());
+            App.getStage().setY(event.getScreenY() - App.getPosition().getY());
+        });
+        bottomPane.setOnMousePressed( event -> {
+            App.getPosition().setX((int) (event.getScreenX() - App.getStage().getX()));
+            App.getPosition().setY((int) (event.getScreenY() -  App.getStage().getY()));
+        });
+        bottomPane.setOnMouseDragged(event -> {
             App.getStage().setX(event.getScreenX() - App.getPosition().getX());
             App.getStage().setY(event.getScreenY() - App.getPosition().getY());
         });
