@@ -77,7 +77,7 @@
                 <Label fx:id="title" alignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                 <FlowPane alignment="CENTER_LEFT" hgap="10.0" prefHeight="200.0" prefWidth="200.0">
                     <children>
-                  <Button mnemonicParsing="false" styleClass="btn">
+                  <Button fx:id="homeButton" mnemonicParsing="false" styleClass="btn">
                      <graphic>
                         <FontAwesomeIcon glyphName="HOME" />
                      </graphic>
