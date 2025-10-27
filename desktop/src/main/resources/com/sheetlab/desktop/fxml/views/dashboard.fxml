@@ -48,7 +48,7 @@
                <content>
                   <FlowPane prefHeight="613.0" prefWidth="863.0">
                      <children>
-                        <GridPane prefHeight="225.0" prefWidth="150.0">
+                        <GridPane fx:id="newProject" prefHeight="225.0" prefWidth="150.0">
                            <columnConstraints>
                               <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
                            </columnConstraints>
