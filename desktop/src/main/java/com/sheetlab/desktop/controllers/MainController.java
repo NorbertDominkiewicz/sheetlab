@@ -3,6 +3,7 @@ package com.sheetlab.desktop.controllers;
 import com.sheetlab.desktop.App;
 import com.sheetlab.desktop.models.ViewController;
 import com.sheetlab.desktop.utils.Page;
+import com.sheetlab.desktop.utils.ProjectData;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -25,6 +26,7 @@ public class MainController implements Initializable {
     String currentFXML;
     DashboardController dashboardController;
     SetupController setupController;
+    ProjectController projectController;
     @FXML
     Button closeButton;
     @FXML
@@ -60,6 +62,9 @@ public class MainController implements Initializable {
             App.getStage().setX(event.getScreenX() - App.getPosition().getX());
             App.getStage().setY(event.getScreenY() - App.getPosition().getY());
         });
+    }
+    public void switchView(Page page, ProjectData data) {
+
     }
     public void switchView(Page page) {
         String name = "";
