@@ -89,3 +89,10 @@
     -fx-pref-width: 100px;
     -fx-cursor: hand;
 }
+
+.data-input {
+    -fx-background-color: rgba(27, 29, 31, 0.87);
+    -fx-graphic-text-gap: 2px;
+    -fx-text-fill: white;
+    -fx-background-radius: 8px;
+}
