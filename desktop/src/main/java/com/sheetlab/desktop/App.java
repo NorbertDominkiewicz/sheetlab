@@ -25,7 +25,7 @@ public class App extends Application {
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         position = new Cords();
         stage = mainStage;
-        scene = new Scene(loadFXML());
+        scene = new Scene(loadFXML(), screenSize.getWidth() - screenSize.getWidth() / 20, screenSize.getHeight() - screenSize.getHeight() / 10);
         stage.setTitle("SheetLab");
         stage.initStyle(StageStyle.TRANSPARENT);
         scene.setFill(Color.TRANSPARENT);
