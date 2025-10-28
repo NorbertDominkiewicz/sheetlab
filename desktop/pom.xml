@@ -3,15 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.sheetlab</groupId>
+        <artifactId>sheetlab</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
 
-  <groupId>com.ndominkiewicz</groupId>
-  <artifactId>desktop</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <name>desktop</name>
+    <artifactId>desktop</artifactId>
+    <packaging>jar</packaging>
+    <name>sheetlab-desktop</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-<junit.version>5.10.2</junit.version>  </properties>
+    <junit.version>5.10.2</junit.version>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -65,10 +71,9 @@
         <version>0.0.8</version>
         <executions>
           <execution>
-            <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.ndominkiewicz.desktop/com.ndominkiewicz.desktop.HelloApplication</mainClass>
+              <mainClass>com.sheetlab.desktop.App</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
@@ -79,6 +84,14 @@
           </execution>
         </executions>
       </plugin>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.3.0</version>
+            <configuration>
+                <mainClass>com.sheetlab.desktop.App</mainClass>
+            </configuration>
+        </plugin>
     </plugins>
   </build>
 </project>
